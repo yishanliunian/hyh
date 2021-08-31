@@ -47,3 +47,11 @@ export function recommend(arg){
         method:'get'
     })
 }
+
+export function classs(arg){
+    return service({
+        url:'/teacher/search/attrs',
+        data:arg,
+        method:'get'
+    })
+}

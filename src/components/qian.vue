@@ -10,7 +10,7 @@
                     <p class="qian-shang-tou-shou-h">{{$store.state.zhang}}</p>
                     <p class="qian-shang-tou-shou-f">积分：6</p>
                 </div>
-                <div class="qian-shang-tou-cha">
+                <div class="qian-shang-tou-cha" @click="gui">
                    签到规则
                 </div>
             </div>
@@ -22,7 +22,7 @@
                 :show-confirm="false"
                 :style="{ height: '340px' }"
                 :row-height="40"
-                @click="select"
+                :show-mark="false"
                 />
         </div>
         <!-- 推荐 -->
@@ -64,16 +64,33 @@
                     />
                     
         </div>
+        <!-- 规则 -->
+        <div class="qian-gui" v-show="show">
+            <div class="qian-gui-bai">
+                <h2>签到规则</h2>
+                <p>1.每日签到可获的一个日签奖励，在单个周期内连续签到可获得连签奖励，同1个周期最多可以领去一次</p>
+                <p>2.每日最多可以签到1次，断签则会重新计算连签天数;</p>
+                <p>3.活动以及奖励最终解释归机构所有</p>
+                <h3 @click="wo">我知道了</h3>
+            </div>
+        </div>
     </div>
     
 </template>
 <script>
 export default {
   data() {
-    return {};
+    return {
+        show:false,
+    };
   },
   methods: {
-     
+     gui(){
+         this.show=true
+     },
+     wo(){
+         this.show=false
+     }
   }
 };
 </script>
@@ -264,6 +281,30 @@ export default {
       top:20px;
       left: 10px;
   }
+}
+.qian-gui{
+   width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background: rgba($color: #000000, $alpha: 0.1);
+    .qian-gui-bai{
+        width: 267px;
+        height: 267px;
+        background: white;
+        position: absolute;
+        top: 49%;
+        left:40px;
+        p{
+            font-size: 13px;
+            color: #999999;
+        }
+        h3{
+            margin-top: 100px;
+        }
+    }
 }
 </style>
 
