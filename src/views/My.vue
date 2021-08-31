@@ -9,6 +9,10 @@
                 <p class="my-top-img"><img class="my-top-img-img" src="/img/02.png" alt=""></p>
                 <p class="my-top-p">{{$store.state.zhang}}</p>
             </div>
+            <div  v-show="$store.state.token!=''" class="my-top-qian" @click="qian">
+                <span><img  class="my-wo-ul-li-img" src="/img/22.png" alt=""></span>
+                <span class="my-wo-ul-li-i">签到</span>
+            </div>
             <div class="my-top-xue">
                 <ul class="my-top-xue-ul">
                     <li class="my-top-xue-ul-li">
@@ -107,28 +111,26 @@
             </ul>
         </div>
         <div class="my-hui2"></div>
-        
-       
-
     </div>
 </template>
 <script>
 export default {
-    data(){
-        return{ 
-            
-        }
-    },
+  data() {
+    return {};
+  },
   methods: {
     login() {
       this.$router.push("/login");
     },
-    zhao(){
-        if(this.$store.state.token==''){
-            this.$router.push('/Login')
-        }else{
-            this.$router.push('/she')
-        }
+    zhao() {
+      if (this.$store.state.token == "") {
+        this.$router.push("/Login");
+      } else {
+        this.$router.push("/she");
+      }
+    },
+    qian(){
+        this.$router.push('/qian')
     }
   }
 };
@@ -145,6 +147,7 @@ export default {
   background-repeat: no-repeat;
   background-size: 100%;
   text-align: center;
+  position: relative;
   .my-top-img {
     width: 60px;
     height: 60px;
@@ -162,73 +165,92 @@ export default {
     color: #fff;
     margin-top: 10px;
   }
-  .my-top-xue{
+  .my-top-xue {
+    width: 100%;
+    height: 75px;
+    .my-top-xue-ul {
       width: 100%;
-      height: 75px;
-      .my-top-xue-ul{
-          width: 100%;
-          margin-top: 80px;
-          text-align: center;
-          list-style: none;
-          .my-top-xue-ul-li{
-            float: left;
-            margin-left: 45px;
-            height: 75px;
-            font-size: 17px;
-            .my-top-xue-ul-li-p{
-                color: deepskyblue;
-                font-size: 20px;
-            }
-            .my-top-xue-ul-li-p2{
-               margin-top: 7px;
-            }
-            .my-top-xue-ul-li-p3{
-                color: red;
-                font-size: 20px;
-            }
-          }
+      margin-top: 80px;
+      text-align: center;
+      list-style: none;
+      .my-top-xue-ul-li {
+        float: left;
+        margin-left: 45px;
+        height: 75px;
+        font-size: 17px;
+        .my-top-xue-ul-li-p {
+          color: deepskyblue;
+          font-size: 20px;
+        }
+        .my-top-xue-ul-li-p2 {
+          margin-top: 7px;
+        }
+        .my-top-xue-ul-li-p3 {
+          color: red;
+          font-size: 20px;
+        }
       }
+    }
   }
 }
-.my-hui{
+.my-hui {
+  width: 100%;
+  height: 10px;
+  background: #d3d0d0;
+}
+.my-wo {
+  width: 100%;
+  .my-wo-ul {
     width: 100%;
-    height: 10px;
+    list-style: none;
     background: #d3d0d0;
-}
-.my-wo{
-    width: 100%;
-    .my-wo-ul{
-        width: 100%;
-        list-style: none;
-        background: #d3d0d0;
-        .my-wo-ul-li{
-            width: 100%;
-            // height: 56px;
-            background: white;
-            margin-top: 1px;
-            align-content: center;
-            line-height: 56px;
-            position: relative;
-            .my-wo-ul-li-img{
-                width: 15px;
-                height: 14px;
-            }
-            .my-wo-ul-li-i{
-                margin-left: 5px;
-              font-size: 15px;
-            }
-            .my-wo-ul-li-im{
-              font-size: 20px;
-               position: absolute;
-                top: 0;
-                right: 20px;
-            }
-        }
+    .my-wo-ul-li {
+      width: 100%;
+      // height: 56px;
+      background: white;
+      margin-top: 1px;
+      align-content: center;
+      line-height: 56px;
+      position: relative;
+      .my-wo-ul-li-img {
+        width: 15px;
+        height: 14px;
+      }
+      .my-wo-ul-li-i {
+        margin-left: 5px;
+        font-size: 15px;
+      }
+      .my-wo-ul-li-im {
+        font-size: 20px;
+        position: absolute;
+        top: 0;
+        right: 20px;
+      }
     }
+  }
 }
-.my-hui2{
-width: 100%;
-height: 80px;
-background: #d3d0d0;
+.my-hui2 {
+  width: 100%;
+  height: 80px;
+  background: #d3d0d0;
+}
+.my-top-qian {
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  background: deepskyblue;
+  position: absolute;
+  top: 80px;
+  left: 315px;
+  border-radius: 10px 0 0 10px;
+  .my-wo-ul-li-img {
+    width: 15px;
+    height: 14px;
+  }
+  .my-wo-ul-li-i {
+    margin-left: 5px;
+    font-size: 10px;
+    color: white;
+  }
 }
 </style>
