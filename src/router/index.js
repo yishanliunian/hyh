@@ -66,6 +66,16 @@ const routes = [
     name: 'qian',
     component:()=>import('@/components/qian')
   },
+  {
+    path: '/kxiang',
+    name: 'kxiang',
+    component:()=>import('@/components/kxiang')
+  },
+  {
+    path: '/zhujiangx',
+    name: 'zhujiangx',
+    component:()=>import('@/components/zhujiangx')
+  }
 ]
 
 const router = new VueRouter({
@@ -73,3 +83,12 @@ const router = new VueRouter({
 })
 
 export default router
+
+
+
+
+
+
+
+
+

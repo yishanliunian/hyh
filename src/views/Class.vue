@@ -5,6 +5,7 @@
             :desc="item.introduction"
             :title="item.real_name"
             :thumb="item.avatar"
+            @click="go(item.id)"
             />
     </div>
 </template>
@@ -22,9 +23,17 @@ export default {
         this.getlist()
     },
     methods:{
+        go(id){
+            this.$router.push({
+                path:"/kxiang",
+                query:{
+                    id:id
+                }
+            })
+        },
        async getlist(){
            let {data:res} = await classs()
-        //    console.log(res)
+           console.log(res)
         this.list=res.data.list
         }
     },

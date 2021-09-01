@@ -55,3 +55,14 @@ export function classs(arg){
         method:'get'
     })
 }
+
+export function ri(arg){
+    return service({
+        url:request_url.recommend,
+        data:arg,
+        method:'get'
+    })
+}
+
+
+

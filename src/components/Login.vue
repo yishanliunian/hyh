@@ -104,7 +104,7 @@ export default {
           this.$router.push('/My')
         }
         this.$store.commit("token",res.data.data.remember_token)
-        this.$store.commit("zhang",res.data.data.mobile)
+        this.$store.commit("zhang",res.data.data.nickname)
     },
 
     zhao(){

@@ -18,11 +18,11 @@
         <!-- 日期 -->
         <div class="qian-ri">
            <van-calendar
-                :poppable="false"
-                :show-confirm="false"
-                :style="{ height: '340px' }"
-                :row-height="40"
-                :show-mark="false"
+            title="签到"
+            :formatter="formatter"
+             :poppable="false"
+              :show-confirm="false"
+              :style="{ height: '330px' }"
                 />
         </div>
         <!-- 推荐 -->
@@ -78,19 +78,48 @@
     
 </template>
 <script>
+import{ri}from"@/http/api"
 export default {
   data() {
     return {
         show:false,
     };
   },
+   async mounted() {
+       const tady = new Date();
+       const year = tady.getMonth()+1;
+       const month_new = tady.getDate();
+       const date_new = tady.getDate();
+
+       let res = await ri({data:`${year}-${month_new}-${date_new}`});
+       console.log(res)
+     },
   methods: {
-     gui(){
+    onConfirm(){
+      this.show=false;
+      this.date=this.formatDate(date)
+    },
+    formatter(day) {
+      const month = day.date.getMonth() + 1;
+      const date = day.date.getDate();
+      
+       const tady=new Date();
+      const year=tady.getFullYear();
+      const month_new=tady.getMonth()+1;
+      const date_new=tady.getDate();
+      
+      if(month==month_new&&date_new==date){
+          day.bottomInfo="+1";
+          day.text='√'
+      }
+      return day;
+    },
+        gui(){
          this.show=true
      },
      wo(){
          this.show=false
-     }
+     },
   }
 };
 </script>
@@ -305,6 +334,9 @@ export default {
             margin-top: 100px;
         }
     }
+}
+.van-calendar__selected-day{
+  border-radius: 50%;
 }
 </style>
 
