@@ -75,6 +75,11 @@ const routes = [
     path: '/zhujiangx',
     name: 'zhujiangx',
     component:()=>import('@/components/zhujiangx')
+  },
+  {
+    path: '/zixiang/:id',
+    name: 'zixiang',
+    component:()=>import('@/views/zixiang')
   }
 ]
 

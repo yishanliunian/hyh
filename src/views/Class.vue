@@ -10,7 +10,7 @@
     </div>
 </template>
 
-<script>
+<script> 
 import { classs } from "@/http/api";
 
 export default {

@@ -34,8 +34,8 @@
         <div class="hui"></div>
         <!-- 教学团队 -->
         <div class="zjx-jiao">
-            <div class="zjx-jiao-img" v-for="item in lists" :key="item.id">
-                <img :src="item.avatar" alt="">
+            <div class="zjx-jiao-img"  v-for="item in lists" :key="item.id">
+                <img @click="go(item.id)" :src="item.avatar" alt="">
                  <p class="zjx-jiao-xing">
                 {{item.teacher_name}}
                 </p>
@@ -100,6 +100,14 @@ export default {
     onSelect(item) {
       this.show = false;
       Toast(item.name);
+    },
+    go(id){
+      this.$router.push({
+                path:"/kxiang",
+                query:{
+                    id:id
+             }
+        })
     }
   }
 };

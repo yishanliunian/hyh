@@ -13,7 +13,8 @@ import {
     Tabs,
     ActionSheet,
     Collapse, 
-    CollapseItem
+    CollapseItem,
+    Icon
 } from 'vant'
 
 
@@ -29,3 +30,4 @@ Vue.use(Tabs)
 Vue.use(ActionSheet)
 Vue.use(Collapse)
 Vue.use(CollapseItem)
+Vue.use(Icon)
